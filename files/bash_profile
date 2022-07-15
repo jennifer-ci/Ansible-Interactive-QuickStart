@@ -1,0 +1,20 @@
+export PATH=/usr/local/bin:$PATH
+
+# Java
+JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home'
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+# Android SDK
+export ANDROID_HOME=~/Android_SDK/sdk
+export PATH=$ANDROID_HOME:$PATH
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/build-tools/27.0.3:$PATH
+export ANDROID_NDK_HOME=~/Android/sdk/ndk-bundle:$PATH
+export BUNDLE_TOOLS=/Users/jennifer.huang/Android_SDK/sdk/build-tools
+export PATH=$BUNDLE_TOOLS:$PATH
+
+
+

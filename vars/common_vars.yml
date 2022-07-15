@@ -1,0 +1,12 @@
+home_dir: /Users/{{ansible_user}}
+usr_local_bin: /usr/local/bin
+xcode_xip: Xcode_13.4.xip
+xcode_app: Xcode13.4.app
+xcode_version: Xcode 13.4
+nodejs_version: v15.11.0
+python_pkg: python-3.8.0-macosx10.9.pkg
+python_pkg_url: 'https://www.python.org/ftp/python/3.8.0/{{ python_pkg }}'
+source_profile: source {{ home_dir }}/.bash_profile
+shell_dir: '/Users/{{ansible_user}}/shell'
+test1_dir: '/Users/{{ansible_user}}/ansibletest1'
+test2_dir: '/Users/{{ansible_user}}/ansibletest2'

@@ -1,0 +1,8 @@
+MacNodes:
+  hosts:
+    JenniferMac:
+      ansible_host: ${host ip}
+  vars:
+    ansible_user: ${set username here}
+    ansible_password: ${set password here}
+

@@ -1,0 +1,37 @@
+---
+#- name: set default xcode version
+#  become: True
+#  shell: xcode-select --switch /Applications/{{ xcode_app }}/Contents/Developer
+#  when: "reg_xcode_version.rc != 0"
+#  ignore_errors: True
+
+- name: xcodebuild -version
+  command: xcodebuild -version
+  register: reg_xcode_version
+  ignore_errors: True
+  tags: install_xcode,download_xcode,check_xcode
+
+- debug: var=reg_xcode_version.stdout
+- debug: var=reg_xcode_version.rc
+  tags: check_xcode
+
+
+- name: set default xcode version2
+  become: True
+  become_method: sudo
+  shell: xcode-select --switch /Applications/{{ xcode_app }}/Contents/Developer
+#  when: "reg_xcode_version.rc != 0"
+  ignore_errors: True
+
+- name: create directory if they don't exist
+  become: True
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: '{{ansible_user}}'
+    group: admin
+    mode: 0775
+  with_items:
+    - '{{test1_dir}}'
+    - '{{test2_dir}}'
+    - '{{ shell_dir }}'

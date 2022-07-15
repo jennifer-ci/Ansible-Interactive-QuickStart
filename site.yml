@@ -1,0 +1,26 @@
+---
+- name: Set up environment
+  hosts: "{{ nodes | default('MacNodes') }}"
+  strategy: "{{ strategy | default('linear') }}"
+  gather_facts: False
+  vars_files:
+    - vars/common_vars.yml
+
+  pre_tasks:
+    - name: make absolutely sure the connection is active
+      wait_for_connection:
+        connect_timeout: 10
+        timeout: 60
+      tags: [ always, connect ]
+
+  tasks:
+    -
+    - include_tasks: subtasks/debugTasks.yml
+      tags: [ debug ]
+
+
+    - include_tasks: subtasks/custom_modules.yml
+      tags: [ moduels ]
+
+    - include_tasks: subtasks/xcodeTask.yml
+      tags: [ install_xcode ]

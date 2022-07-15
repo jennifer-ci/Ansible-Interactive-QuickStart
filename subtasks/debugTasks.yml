@@ -1,0 +1,17 @@
+- name: print env
+  debug:
+    msg: "{{ lookup('env','USER','HOME','SHELL', 'ansible_env') }}"
+
+
+- name: create directory if they don't exist
+  become: True
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: '{{ansible_user}}'
+    group: admin
+    mode: 0775
+  with_items:
+    - '{{test1_dir}}'
+    - '{{test2_dir}}'
+    - '{{ shell_dir }}'

@@ -1,0 +1,5 @@
+- name: test consume a custom modules]
+  HttpRequest:
+    test1: "moduleValue3"
+    test2: "moduleValue4"
+    toPost: true
